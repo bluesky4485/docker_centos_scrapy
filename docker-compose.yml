@@ -1,0 +1,15 @@
+version: '2'
+services:
+
+  # 公共镜像，只配置了国内镜像加速
+  centos:
+    build: centos
+    image: kolehank/centos
+
+  python:
+    build: python
+    image: kolehank/python
+    depends_on:
+      - "centos"
+    volumes:
+      - "./volumes/scrapy:/apps/scrapy"
