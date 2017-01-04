@@ -14,7 +14,8 @@ RUN pip install Scrapy
 RUN pip install -U selenium
 COPY entrypoint.sh /apps/
 RUN chmod +x /apps/entrypoint.sh
-COPY phantomjs.tar.gz /apps/
+RUN wget -O /apps/phantomjs.tar.bz2 https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
+#COPY phantomjs.tar.gz /apps/
 RUN tar zxvf /apps/phantomjs.tar.gz -C /bin/
 RUN chmod +x /bin/phantomjs
 
