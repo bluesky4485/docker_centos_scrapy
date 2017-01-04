@@ -14,7 +14,8 @@ RUN pip install Scrapy
 RUN pip install -U selenium
 COPY entrypoint.sh /apps/
 RUN chmod +x /apps/entrypoint.sh
-COPY phantomjs /bin/
+COPY phantomjs.tar.gz /apps/
+RUN tar zxvf /apps/phantomjs.tar.gz -C /bin/
 RUN chmod +x /bin/phantomjs
 
 # 容器命令执行
